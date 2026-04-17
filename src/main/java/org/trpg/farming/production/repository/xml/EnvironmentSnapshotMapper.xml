@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.production.dao.EnvironmentSnapshotRepository">
+
+    <select id="findLatestByResourceId" resultType="com.example.production.entity.EnvironmentSnapshot">
+        SELECT
+            id,
+            resource_id,
+            temperature,
+            humidity,
+            light_lux,
+            soil_moisture,
+            air_quality,
+            snapshot_time,
+            created_at,
+            updated_at
+        FROM production_environment_snapshot
+        WHERE resource_id = #{resourceId}
+        ORDER BY snapshot_time DESC
+        LIMIT 1
+    </select>
+
+</mapper>
