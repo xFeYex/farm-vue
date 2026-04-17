@@ -1,4 +1,4 @@
-package org.trpg.farming.dao;
+package org.trpg.farming.lease.dao;
 
 public class ResourceRepository {
 }
